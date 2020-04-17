@@ -175,11 +175,7 @@ int main(){
 
 **NOTE**: There is NO conversion specifier & address operator in C++
 
-
-
 ---
-
-
 
 # Object Terminology
 
@@ -201,8 +197,6 @@ Objects of the same class have:
 - possibly different states
 
 > Each object is an instance of its class.
-
-
 
 ### UML (The Unified Modelling Language)
 
@@ -232,15 +226,11 @@ Equivalent terms
 > C++ uses the terms *data members* & *member functions*
 
 
-
 ### ENCAPSULATION
 
 > refers to the integration of data and logic within a class' implementation that establishes the crisp interface between the implementation and any client
->
 > maintains high cohesion within a class and low coupling between the class' implementation and any one of its clients
->
 > A well-encapsulated class hides all implementation details within itself.
-
 
 
 ### INHERITANCE AND POLYMORPHISM
@@ -267,4 +257,69 @@ Equivalent terms
 - Encapsulation
 - Inheritance
 - Polymorphism
+
+
+
+# Modular Programming
+
+### Modules
+
+> The module addresses one aspect of the programming solution and hides as much detail as practically possible.
+
+We store the source code for each module in two separate files
+
+- header file -         define the class and declares the function prototypes
+- implementation file - defines the functions and contains all of the logic
+
+> An implementation file can include several header files but DOES NOT include any other implementation file.
+
+
+
+### STAGES OF COMPILATION
+
+Three independent but sequential stages
+
+- preprocessor
+- compiler
+- linker
+
+
+
+### Command Line Compilation
+
+**Linux**
+
+`g++ -o accounting main.cpp Transaction.cpp`
+
+| Item           | Description                      |
+|----------------|----------------------------------|
+| -o             | identifies the name of the exe   |
+| two files name | specify the implementation files |
+
+**Legacy Linux**
+
+`g++ -o accounting -std=c++0x main.cpp Transaction.cpp`
+
+specify the std option to compile an app that includes a C++ 11 feature on a legacy Linux installation
+
+**Visual Studio**
+
+`cl /Fe accounting main.cpp Transaction.cpp`
+
+`/Fe`    identifies the name of the exe
+
+
+
+### IDE Compilation
+
+Already know
+
+
+
+### UNIT TESTS
+
+> It is good programming practice to write the suite of unit tests for the work units in a module as soon as we have defined the header file and before coding the bodies of the work units.
+
+
+
 
