@@ -1,137 +1,178 @@
 # Welcome to Object-Oriented
 
+
+
 ### ADDRESSING COMPLEXITY
 
->We express the features in terms of *data* & *activities*
->We identify the data objects & the activities on those objects as complementary tasks
-
-The three relationship
+**Three Relationship**
 
 - *has-a* relationship
+- *uses-a* relationship
+- *is-a-king-of* relationship
 
-- *use-a* relationship
 
-- *is-a-kind-of* relationship
 
-### PROGRAMMING LANGUAGE
+**Switching from**	
 
-**TOP Five Language**
+activities in the structure chart		
 
-- JAVA
+procedural description of the problem
+
+**To**	
+
+objects in the relationship diagram
+
+object-oriented description
+
+
+
+---
+
+
+
+### PROGRAMMING LANGUAGES
+
+**The Five Most Popular Languages**
+
+- Java
 - C
-- Python
 - C++
+- Python
 - C#
 
-**The distinguishing features of C, C++ & Java**
+**The Distinguishing Features of C, C++ and Java**
 
-- C has no o-o support.
+- C 
+	- has NO object-oriented support
+	- activity-oriented structures
 
-- C++ is hybrid.
+- C++
+	- hybrid
+	- arguments C with object-oriented features
+	- partly activities & partly objects
+	- stresses compile-time logic
 
-- Java is purely o-o.
+- Java
+	- purely object-oriented
+	- object-oriented structures
+	
+	
 
 ### Features of C++
 
-See the website.
+- superset of C
+- multi-paradigm language
+	- procedural
+	- object-oriented
+- realistic, efficient, and flexible
+	- large apps
+	- game
+	- OS
+- clean
+- comprehensive
+
+
 
 ### Type Safety
 
-In C++, all prototypes list their parameter types, which has forced all compilers to check for argument/ parameter type mismatches at compile-time.
+- C compilers are more tolerant of type errors than C++ compilers
+- In C++, all prototypes must list their parameter types
+
+
+
+---
+
+
 
 ### NAMESPACES
 
->A **namespace** is a scope for the entities that it encloses.
->Scoping rules avoid identifier confilicts across different namespaces.
+**Purpose**:		To avoid naming conflicts
 
-**Definition**
+**Definition**:	A scope for the entities that it encloses
 
-```c++
+
+
+**Syntax**
+
+```C++
 namespace identifier {
 
 }
 ```
 
-`identifier`    the name of the scope
-`{}`			encolses & defines the scope
+`::`																			 the scope resolution operator	
 
-**Access**
+`using identifier::x;`		 							  expose an identifier to the current namespace
 
-To access a variable defined within a namespace, we procede its identifier with the identifier and separate them with `::`. This is called **scope resolution oerator**
+`using namespace identifier::variable;`	expose all identifiers of a namespace
 
-**Expose**
 
-expose one variable to the current namespace:
-
-`using *identifier*::variable;`
-
-expose all of a namespace's identifiers:
-
-`using namespace *identifier*::variable;`
 
 **Common Usage**
 
 - struct-like types
 - function types
 
-### FIRST EXAMPLE
 
-**C++ procedural code**
 
-```c++
+---
+
+
+
+### FIRST EXAMPLES
+
+### C++ Procedural Code
+
+```C++
 #include <cstdio>
 using namespace std;
 
-int main(){
-	printf("Hello World!")
+int main() {
+	printf("Welcome to Object-Oriented\n");
 }
 ```
 
-Note:
+`.cpp`				  file extension										
+`<csdio>`			standard input/output library
+`std`					namespace in header						
 
-- `<cstdio.h>` - C++ version
-- it declares the prototype for printf() within the `std` namespace
-- `std` denotes standard
 
-`using namespace std;`
 
-- expose all identifiers declared within the std namespace to the global namespace.
-- the libraries of standard C++ declare most of their identifiers within the std namespace.
+### C++ Hybrid Code
 
-**C++ hybrid code**
-
-```c++
+```C++
 #include <iostream>
 using namespace std;
 
 int main(){
-	cout << "Hello World!" << endl;
+	cout << "Welcome to Object-Oriented" << endl;
 }
 ```
 
-Note:
+`<iostream>`		provides access to the std input/output objects
+`cout`					the std output device
+`<<`						inserts from RIGHT to LEFT
+`endl`					manipulator - end of line character w/ a flushing of the output buffer
 
-- `<iostream>` 	provides access to the standard io objects
-- `cout`		the standard output device
-- `<<` 			inserts whatever is on its right side into whatever is on its left side
-- `endl` 		end of line character & a flushing of the output buffer
-- NO formatting string
+
 
 ### First I/O Example
 
-```c++
+```C++
 #include <iostream>
 using namespace std;
 
 int main(){
-	cout << "Enter an integer: ";
+	int i;
+	cout << "Enter an integer : ";
 	cin >> i;
-	cout << "You entered: " << i << endl;
+	cout << "You enterd " << i << endl;
 }
 ```
 
-Note:
+`cin`				std input device
+`>>`				  extracts and stores
 
-- `cin` the standard input devide
-- `>>`  assign input value to variable
-- NO "&" get involved
+**NOTE**: There is NO conversion specifier & address operator in C++
+
+
