@@ -132,11 +132,9 @@ int main() {
 }
 ```
 
-`.cpp`			file extension
-
-`<csdio>`		standard input/output library
-
-`std`			namespace in header						
+`.cpp`				  file extension										
+`<csdio>`			standard input/output library
+`std`					namespace in header						
 
 
 
@@ -152,12 +150,9 @@ int main(){
 ```
 
 `<iostream>`		provides access to the std input/output objects
-
-`cout`			the std output device
-
-`<<`			inserts from RIGHT to LEFT
-
-`endl`			manipulator - end of line character w/ a flushing of the output buffer
+`cout`					the std output device
+`<<`						inserts from RIGHT to LEFT
+`endl`					manipulator - end of line character w/ a flushing of the output buffer
 
 
 
@@ -175,10 +170,101 @@ int main(){
 }
 ```
 
-`cin`		std input device
-
-`>>`		extracts and stores
+`cin`				std input device
+`>>`				  extracts and stores
 
 **NOTE**: There is NO conversion specifier & address operator in C++
 
+
+
+---
+
+
+
+# Object Terminology
+
+**Object**
+Manageable chunks from problems broken down
+
+**Class**
+The shared structure of a set of similar objects
+
+### ABSTRACTION
+
+> We distinguish the most important features of the object, identify them publicly and hide the less important details within the object itself.
+
+### CLASSES
+
+Objects of the same class have:
+
+- the same structure
+- possibly different states
+
+> Each object is an instance of its class.
+
+
+
+### UML (The Unified Modelling Language)
+
+**UML Connectors**
+
+- filled circle
+- empty circle
+- arrow
+
+**The Class Diagram**
+
+A rectangular box with three compartments
+
+| Compartments | Identifies                                        |
+|--------------|---------------------------------------------------|
+| upper        | class name                                        |
+| middle       | attributes names & types                          |
+| lower        | operations' names, return types & parameter types |
+
+**Terminology**
+
+Equivalent terms
+
+- attributes (UML) - fields, data members, properties, member variables
+- operations (UML) - methods (Java), procedures, messages, member functions
+
+> C++ uses the terms *data members* & *member functions*
+
+
+
+### ENCAPSULATION
+
+> refers to the integration of data and logic within a class' implementation that establishes the crisp interface between the implementation and any client
+>
+> maintains high cohesion within a class and low coupling between the class' implementation and any one of its clients
+>
+> A well-encapsulated class hides all implementation details within itself.
+
+
+
+### INHERITANCE AND POLYMORPHISM
+
+**Relationship Between Classes**
+
+- Inheritance  - one class inherits the structure of another class
+- Polymorphism - a single interface provides multiple implementations
+
+**Inheritance**
+
+> Classes that share the same structure
+
+> We only provide the code that implements additional structure
+
+**Polymorphism**
+
+> The implementation for an object based on its type
+
+> Allows us to minimize the duplication of code amongst objects that belong to the same inheritance hierarchy
+
+**The Three Musketeers**
+
+- Encapsulation
+- Inheritance
+- Polymorphism
 
