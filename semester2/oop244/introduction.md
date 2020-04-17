@@ -132,9 +132,11 @@ int main() {
 }
 ```
 
-`.cpp`				  file extension										
-`<csdio>`			standard input/output library
-`std`					namespace in header						
+`.cpp`			file extension
+
+`<csdio>`		standard input/output library
+
+`std`			namespace in header						
 
 
 
@@ -150,9 +152,12 @@ int main(){
 ```
 
 `<iostream>`		provides access to the std input/output objects
-`cout`					the std output device
-`<<`						inserts from RIGHT to LEFT
-`endl`					manipulator - end of line character w/ a flushing of the output buffer
+
+`cout`			the std output device
+
+`<<`			inserts from RIGHT to LEFT
+
+`endl`			manipulator - end of line character w/ a flushing of the output buffer
 
 
 
@@ -170,8 +175,9 @@ int main(){
 }
 ```
 
-`cin`				std input device
-`>>`				  extracts and stores
+`cin`		std input device
+
+`>>`		extracts and stores
 
 **NOTE**: There is NO conversion specifier & address operator in C++
 
