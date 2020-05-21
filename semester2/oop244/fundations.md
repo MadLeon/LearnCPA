@@ -2,23 +2,25 @@
 
 ## TYPES
 
-*Fundamental Type*    built-in type
+**Fundamental Type**    built-in type
 
-*Struct Type*
+**Compound Types**
 
-- C   - derived type
-- C++ - compound type
+- constructed from fundamental types
+- derived types in C
+
+
 
 ### Fundamental Types
 
 - Integral Types
 	- *bool*
-	- char
-	- int - short, long, long long
+	- *char*
+	- *int* - *short, long, long long*
 
 - Floating Point Types
-	- float
-	- double - long double
+	- *float*
+	- *double* - *long double*
 
 **bool**
 
@@ -29,12 +31,14 @@
 1    <=>     0
 true <=> false
 
-**bool to int**
+**bool (int) to int (bool)**
 
-bool  | int
-------|
-true  | 1
-false | 0
+bool/int  | int/bool 
+------|------
+true / !=0  | 1 / true 
+false / 0 | 0 / false 
+
+
 
 ### Compound Types
 
@@ -43,12 +47,16 @@ false | 0
 
 > C++ DOES NOT require the keyword struct or class in a **function prototype** or an **object definition**
 
+
+
 ### auto Keyword
 
-> This keyword deduces the object's type directly from its initializer's type
+> This keyword deduces the object's type directly from its initializer's type.
+>
+> Initializer must be provided.
 
-`auto x = 4;`    x is an int
-`auto y = 3.5;`  y is a double
+`auto x = 4;`    x is an *int*
+`auto y = 3.5;`  y is a *double*
 
 
 
@@ -57,21 +65,25 @@ false | 0
 
 ### Declarations
 
-> associates an entity with a type, telling the compiler how to interpret the entity's identifier.
+> Associates an entity with a type
+
+#### Forward Declaration
+
+> Like a function prototype
 
 
 
 ### Definitions
 
-> a declaration that associates a meaning with an identifier.
+- associates a meaning with an identifier.
+- an executable statement. 
+- can be embedded amongst other executable statements.
+    - `for (int i = 0; i < n; i++)`
+- are not necessarily definitions
 
-> In C++, each definition is an executable statement. We may embed it amongst other executable statements.
+#### One Definition Rule
 
-`for (int i = 0; i < n; i++)`
-
-**One Definition Rule**
-
-In C++, a definition may only appear once within its scope.
+>  A definition may only appear once within its scope.
 
 
 
@@ -79,19 +91,23 @@ In C++, a definition may only appear once within its scope.
 
 See example in the online notes
 
-**Forward Declaration Solution**
+#### Forward Declaration Solution
 
-> provides the compiler with just enough info to accept the identifier, without exposing the type details.
+> provide with just enough information
+>
+> inserting the prototype and a forward declaration into `main.h`
 
-**Compact Solution**
+#### Compact Solution
 
 > localized all declarations related within the same header file
+>
+> inserting the prototype into `Transaction.h`
 
-**Helper Function**
+#### Helper Function
 
-functions that support a compound type
+functions that **support a compound type**
 
-**Proper Header File Inclusion**
+#### Proper Header File Inclusion
 
 Include header files in the order:
 
@@ -99,7 +115,7 @@ Include header files in the order:
 - "..." - other system header files
 - "..." - your own header files
 
-> insert namespace declarations and directives after all header file inclusions.
+Insert namespace declarations and directives **after** all header file inclusions.
 
 
 
@@ -117,7 +133,7 @@ local = non-global
 
 ### Going Out of Scope
 
-**Iteration**
+#### Iteration
 
 ```C++
 for (int i = 0; i < 4; i++) {
@@ -126,8 +142,10 @@ int j;
 ```
 
 Note:
-`i` goes out of scope immediately *after* the closing brace
-`j` goes out of scope immediately *before* the closing brace, means each iteration
+`i` goes out of scope immediately **after** the closing brace
+`j` goes out of scope immediately **before** the closing brace, means **each iteration**
+
+
 
 ### Shadowing
 
@@ -145,13 +163,19 @@ mentioned in last semester
 
 `type identifier (type identifier [, ...., type identifier])`
 
-> The square brackets enclose optional info. The return type and the parameter identifiers are not part of a function's signature.
+> The square brackets enclose optional info. 
+>
+> The return type and the parameter identifiers are not part of a function's signature.
+
+NOTE:
+
+`identifier (type [, ..., type])`    
 
 
 
 ### Prototypes
 
-function prototype = function signiture + return type
+function prototype = function signature + return type
 
 > The declaration may be either a prototype or the function definition itself.
 
@@ -161,37 +185,38 @@ function prototype = function signiture + return type
 
 `type identifier(type[, ...], type = value);`
 
+> Must be the rightmost parameters.
+
 
 
 ## REFERENCES
 
-> A *reference* is an alias for a variable or obj.
-
-> A reference is an alternative to the pass by address mechanism
+- an alias for a variable or object
+- an alternative to the pass by address mechanism
 
 `type identifier(type& identifier, ...)`
 
 NOTE: The feature of referencing
 
-- only specify '&' in prototype
-- do NOT specify in function call
+- do NOT use '&' in function call
 - use '&' in definition, instead of '*'
 
 
 
 ## ARRAY OF POINTERS
 
-> Array of pointers contain addresses rather than values.
+contain addresses rather than values.
 
 
 
 ## KEYWORDS
 
-There are 84 keywords in C++. C programs without using those keywords as identifiers are called clean C programs.
+- There are 84 keywords in C++. 
+- C programs without using those keywords as identifiers are called **clean C programs**.
 
 
 
----
+
 
 
 
@@ -201,15 +226,16 @@ There are 84 keywords in C++. C programs without using those keywords as identif
 
 ### Static Memory
 
-> The memory that the operating system allocates for the application at load time.
+> The memory that the operating system allocates for the application at **load time**.
 
-Static memory includes the memory allocated for
+includes the memory allocated for
 
 - program instructions
 - program data
 
-The *compiler* determines    the amount of static memory that each translation unit requires
-The *linker* determines      the amount of static memory that the entire app requires
+The **compiler** determines    the amount of static memory that each translation unit requires
+
+The **linker** determines      the amount of static memory that the entire app requires
 
 - determined at compile-link time 
 - do NOT change during execution
@@ -221,14 +247,16 @@ The *linker* determines      the amount of static memory that the entire app req
 
 ### Dynamic Memory (DM)
 
-> The memory that an app obtains from the OS during execution.
+> The memory that an app obtains from the OS during **execution**.
 
 - system reserves DM
 - allocated & deallocated at run-time
 
-**Scope Considerations**
+#### Scope Considerations
 
-> To keep track of an app's DM, we store the address of each allocated region in a pointer variable. We allocate memory for this pointer itself in static memory. This pointer variable must remain in scope as long as wee need access to the data in the allocated region of DM.
+- store the address of each allocated region in a pointer
+- allocate memory for this pointer itself in static memory
+- the pointer must remain in scope if it needed to be access
 
 
 
@@ -264,7 +292,7 @@ student = new Student[n];
 
 ## DYNAMIC DEALLOCATION
 
-**Syntax**
+### Syntax
 
 `delete [] pointer`
 
@@ -273,11 +301,13 @@ delete [] student;
 student = nullptr;
 ```
 
-> The second line is optional, it eliminates the possibility of deleting the original address a second time, which is a serious run-time error.
+- the second line is optional
+- omitting `[]` only deallocates the first element, leaving the other elements inaccessible
+- deallocation does not return DM to OS **until** app ends
 
-> Omitting '[]' only deallocates the first element, leaving the other elements inaccessible.
+**NOTE**:
 
-> Deallocation does not return DM to OS until app ends.
+Always try to use **smart pointer** instead of directly allocation!
 
 
 
@@ -290,16 +320,9 @@ student = nullptr;
 
 ### Memory Leak
 
-> an app loses the address of DM before it has been deallocated.
-
-> One of the important bugs in oo programming.
-
-**Reasons**
-
-- the pointer to DM goes out of scope *before* deallocation
-- the pointer to DM changes its value *before* the app deallocates the memory starting at the address stored in that pointer
-
-**Appearance**
+- an app loses the address of DM **before** it has been deallocated
+    - the pointer goes out of scope
+    - the pointer's value has been changed
 
 - subsequently incorrect results
 - progressively slower execution
@@ -316,7 +339,7 @@ Will be discussed later
 
 ### Allocation
 
-**Syntax**
+#### Syntax
 
 `pointer = new type;`
 
@@ -326,22 +349,25 @@ Note: removing the '[]'
 
 ### Deallocation
 
-**Syntax**
+#### Syntax
 
 `delete pointer;`
 `pointer = nullptr;`
 
 
 
+
+
 # Member Functions and Privacy
-
-
 
 ## MEMBER FUNCTIONS
 
-Communication Link between client code and objects of the class.
+- communication Link between client code and objects of the class
+- has direct access to the data members
 
-**Mutually Exclusive Categories**
+
+
+### Mutually Exclusive Categories
 
 | Categories  | Methods          | Function                             |
 | ----------- | ---------------- | ------------------------------------ |
@@ -349,11 +375,13 @@ Communication Link between client code and objects of the class.
 | *modifiers* | mutator methods  | change the state of the object       |
 | *special*   | manager methods  | create, assign and destroy an object |
 
+
+
 ### Adding a Member Function
 
-**Function Declaration**
+#### Function Declaration
 
-> To declare a member function to a class, we insert its prototype into the class definition.
+- insert its prototype into the class definition
 
 ```C++
 struct Student {
@@ -367,11 +395,9 @@ struct Student {
 
 `const`    identifies the member function as a query, it cannot change the value of `no` and `grade`
 
-> Member function has direct access to the data members.
 
 
-
-**Function Definition**
+#### Function Definition
 
 ```C++
 void Student::display() const {
@@ -386,7 +412,7 @@ void Student::display() const {
 | *const*           | it cannot change other members' value                    |
 | data members      | directly access other members' values                    |
 
-**Calling a Member Function**
+#### Calling a Member Function
 
 `student.display();`
 
@@ -396,7 +422,7 @@ void Student::display() const {
 
 > The scope lies within the scope of its class.
 
-**Accessing Global Functions**
+#### Accessing Global Functions
 
 ```C++
 void Student::displayNo() const {
@@ -419,49 +445,55 @@ void Student::displayNo() const {
 
 `class`     identifies a class that is private by default
 
+
+
 ### Modifying Private Data
 
-Using member function to help initializing such as set()
+> Using member function to help initializing such as set()
+
+NOTE: not a good way
+
+
 
 ### Communications Links
 
-> Member functions are only communication liks to client code.
+> Member functions are only communication links to client code.
 
 
 
-## EMPTY STATE 
+## EMPTY STATE
 
 Verify data by using member functions
 
 - accept valid
 - reject invalid
 
-**Design Tip**
+#### Design Tip
 
-> Select one data member to hold the special value that identifies an empty state. Then, to determine if an obj is in an empty state, we only need to interrogate that data member.
+> Select one data member to hold the special value that identifies an empty state. Then, to determine if an object is in an empty state, we only need to interrogate that data member.
 
 
 
 ## INPUT AND OUTPUT EXAMPLES
 
-### cin
+### `cin`
 
 `cin >> identifier`
 
 - an instance of the `istream` type
 - skip leading whitespace with numeric, string and character types
 - treat whitespace as delimiter for numeric and string 
-- add '\0' after the non-whitespace character
+- **only** for C style null-terminated string types, add '\0' after the last non-whitespace character
 
 `istream` type member functions
 
-| Functions | Description                                         |
-| --------- | --------------------------------------------------- |
-| ignore()  | ignores/discards character(s) from the input buffer |
-| get()     | extracts a character / string from the input buffer |
-| getline() | extracts a line of characters from the input buffer |
+| Functions   | Description                                         |
+| ----------- | --------------------------------------------------- |
+| `ignore()`  | ignores/discards character(s) from the input buffer |
+| `get()`     | extracts a character / string from the input buffer |
+| `getline()` | extracts a line of characters from the input buffer |
 
-**ignore()**
+#### ignore()
 
 - does NOT skip leading whitespace
 
@@ -474,70 +506,78 @@ Verify data by using member functions
 - removes and discards up to the specified number of characters 
 - or up to the specified delimiting character, whichever occurs first
 - discards the delimiting character
-- the default delimiter is EOF (not end of line)
+- the default delimiter is EOF (end of file, but not end of line)
 
 
 
-### cout
+### `cout`
 
 `cout << identifier`
 
-- an instance of the ostream type
+- an instance of the `ostream` type
 - copies data from system memory into an output stream
 - converts the data in system memory into a sequence of characters
+- can combine expressions into a single statement that specifies multiple insertions
 
-**cascading**
 
-> Combine expressions into a single statement that specifies multiple insertions.
 
 `ostream` type public member functions
 
-| Functions      | Description                                          |
-| -------------- | ---------------------------------------------------- |
-| width(int)     | sets the fields width to the integer received        |
-| fill(char)     | sets the padding character to the character received |
-| setf()         | sets a formatting flag for the flag received         |
-| unsetf()       | unsets a formatting flag for the flag received       |
-| precision(int) | sets the decimal precision to the integer received   |
+| Functions        | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| `width(int)`     | sets the fields width to the integer received        |
+| `fill(char)`     | sets the padding character to the character received |
+| `setf()`         | sets a formatting flag for the flag received         |
+| `unsetf()`       | unsets a formatting flag for the flag received       |
+| `precision(int)` | sets the decimal precision to the integer received   |
+
+
 
 `width()`
 
-- applies only to the next field
+- applies only to the **next output field**
+
+
 
 `fill()`
 
 - define the padding character
-- the default fill character is ' ' (space)
-- the padding character remains unchanged until reset
+- the default fill character is `' '` (space)
+- the padding character **remains unchanged** until reset
 
-`setf()`, `unsetf()`
+
+
+`setf(control flag)`, `unsetf(control flag)`
 
 - control formatting and alignment
-- the default format in C++ is *general format*
+- the default format in C++ is **general format**
 
-| Control Flag    | Result      |
-| --------------- | ----------- |
-| ios::fixed      | ddd.ddd     |
-| ios::scientific | d.ddddddEdd |
-| ios::left       | align left  |
-| ios::right      | align right |
+| Control Flag      | Result      |
+| ----------------- | ----------- |
+| `ios::fixed`      | ddd.ddd     |
+| `ios::scientific` | d.ddddddEdd |
+| `ios::left`       | align left  |
+| `ios::right`      | align right |
 
-Note: the scope resolution (ios::) identifies them as part of the `ios` class
+Note: the scope resolution (`ios::`) identifies them as part of the `ios` class
 
-- format settings persist until change
+- format settings **persist until change**
 - pass the format that want to change to `unset()`
 
-**precision**
 
-- sets the precision of subsequent floating-point fields
+
+`precision()`
+
+- sets the precision of **subsequent floating-point fields**
 - the default precision is 6 units
-- applies to the output of all subsequent floating-point values until change
+- applies to the output of all subsequent floating-point values **until change**
 
 Note: 
+
 general, fixed, and scientific formats implement precision differently
 
 - general format counts the number of significant digits
-- scientific and fixed formats count the number of digits following the decimal point
+- **scientific and fixed formats** count the number of digits following the decimal point
 
 
 
